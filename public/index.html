@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Simple Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+             
+        }
+        #newpost{
+            padding:10px;
+border-radius: 10px;
+margin-left: 1250px;
+        }
+        
+        .post {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+        }
+        .post h2 {
+            margin-top: 0;
+        }
+        .actions {
+            margin-top: 20px;
+        }
+        
+
+        .posts{
+            color:black;
+            display: flex;
+        }
+
+        /* #post1 {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        #postForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #postForm input, #postForm textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #postForm button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #postForm button:hover {
+            background-color: #555;
+        } */
+        
+
+        #editModal {
+            display: none;  
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        #editModalContent {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 400px;
+        }
+        #editModal input, #editModal textarea {
+            width: 90%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #editModal button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #editModal button:hover {
+            background-color: #555;
+        }
+        #editModal .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        #editModal .close:hover,
+        #editModal .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+        #post1 {
+            display: none;  
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        #addPostContent {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 400px;
+        }
+        #post1 input, #post1 textarea {
+            width: 90%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #post1  button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #post1 button:hover {
+            background-color: #555;
+        }
+
+
+
+    #post1 .close1{
+        color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+    }
+    #post1 .close1:hover,
+    #post1 .close1:focus {
+        color: black;
+            text-decoration: none;
+            cursor: pointer;
+    }
+
+    </style>
+</head>
+<body>
+
+    
+     
+    <button id="newpost"> Add new post</button>
+
+    <h1> My Blog</h1>
+    
+    <div id="posts"></div>
+     
+
+
+    <div id="editModal">
+        <div id="editModalContent">
+            <span class="close">&times; </span>
+            <h2>Edit Post</h2>
+            <input type="text" id="editTitle" placeholder="Title" required><br><br>
+            <textarea id="editContent" placeholder="Content" rows="5" required></textarea><br><br>
+            <button id="saveEdit">Save Changes</button>
+        </div>
+    </div>
+    <!-- <div id="post1" style="display:none;"> -->
+        <div id="post1"> 
+        <div id="addPostContent">
+        <span class="close1">&times; </span>
+        <h2>Add New Post</h2>
+        <form id="postForm">
+            <input type="text" id="title" placeholder="Title" required><br><br>
+            <textarea id="content" placeholder="Content" rows="5" required></textarea><br><br>
+            <button type="submit " id="addpost">Add Post</button>
+        </form>
+    </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
+ 
